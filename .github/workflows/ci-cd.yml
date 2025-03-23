@@ -3,7 +3,7 @@ name: Java CI/CD
 on:
   push:
     branches:
-      - main  # Запускать CI/CD при пуше в ветку main
+      - master  # Запускать CI/CD при пуше в ветку main
 
 jobs:
   build:
