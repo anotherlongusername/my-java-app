@@ -1,0 +1,26 @@
+name: Java CI/CD
+
+on:
+  push:
+    branches:
+      - main  # Запускать CI/CD при пуше в ветку main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Используем Ubuntu для сборки
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # Клонируем репозиторий
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'  # Указываем версию Java
+          distribution: 'temurin'
+
+      - name: Build with Maven
+        run: mvn clean package  # Собираем проект с помощью Maven
+
+      - name: Run tests
+        run: mvn test  # Запускаем тесты 
